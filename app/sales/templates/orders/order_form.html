@@ -1,0 +1,15 @@
+<h2>Создать заказ</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ order_form.as_p }}
+
+    {{ formset.management_form }}
+    {% for form in formset %}
+        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc;">
+            {{ form.as_p }}
+        </div>
+    {% endfor %}
+
+    <button type="submit">Сохранить</button>
+</form>
